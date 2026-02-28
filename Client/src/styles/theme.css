@@ -1,0 +1,69 @@
+:root {
+    /* 
+     * Modern Vibrant Dark Palette
+     * Primary Background: Deep Space / Royal Purple
+     * Primary Brand: Electric Blue to Cyber Pink
+     */
+    --primary-h: 230;
+    --primary-s: 100%;
+    --primary-l: 60%;
+
+    --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+    --primary-hover: hsl(var(--primary-h), var(--primary-s), 50%);
+    --primary-glass: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.25);
+
+    --secondary: #6e45e2;
+    --accent: #00d1ff;
+    --accent-alt: #ff007a;
+
+    /* Neutrals & Backgrounds */
+    --bg-main: #0b0e14;
+    --bg-surface: #1a1f2e;
+    --bg-glass: rgba(15, 23, 42, 0.65);
+    --bg-glass-bright: rgba(255, 255, 255, 0.03);
+
+    /* Text */
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-on-primary: #ffffff;
+
+    /* Borders & Accents */
+    --border-light: rgba(255, 255, 255, 0.08);
+    --border-bright: rgba(255, 255, 255, 0.15);
+    --border-active: rgba(110, 69, 226, 0.5);
+
+    /* Spacing System */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2.5rem;
+    --space-2xl: 4rem;
+
+    /* Radius System */
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --radius-full: 9999px;
+
+    /* Depth & Shadows */
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 12px 24px -6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(110, 69, 226, 0.3);
+
+    /* Advanced Effects */
+    --glass-blur: blur(16px);
+    --header-height: 80px;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-snappy: all 0.2s ease;
+
+    /* Gradient Backgrounds */
+    --grad-main: radial-gradient(circle at top right, #1e1b4b, #0b0e14);
+    --grad-primary: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+    --grad-accent: linear-gradient(135deg, #00d1ff 0%, #6e45e2 100%);
+    --grad-card: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --grad-mesh: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+}
