@@ -40,7 +40,9 @@ const syncUser = async (req, res, next) => {
       user,
     });
   } catch (error) {
-    return next(error);
+    console.error("Auth sync error:", error);
+    // Important: even if sync fails, we want the client to know
+    return res.status(500).json({ message: 'User sync failed, but authentication was successful.', error: error.message });
   }
 };
 
