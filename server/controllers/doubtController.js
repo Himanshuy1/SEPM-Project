@@ -41,7 +41,7 @@ const getAllDoubts = async (req, res, next) => {
     }
 
     const doubts = await Doubt.find(filter)
-      .populate('createdBy', 'email role branch semester reputation')
+      .populate('createdBy', 'email role branch semester reputation firebaseUID')
       .sort({ createdAt: -1 });
 
     return res.status(200).json(doubts);
@@ -58,7 +58,7 @@ const getDoubtById = async (req, res, next) => {
       return res.status(400).json({ message: 'Invalid doubt ID.' });
     }
 
-    const doubt = await Doubt.findById(id).populate('createdBy', 'email role branch semester reputation');
+    const doubt = await Doubt.findById(id).populate('createdBy', 'email role branch semester reputation firebaseUID');
 
     if (!doubt) {
       return res.status(404).json({ message: 'Doubt not found.' });
