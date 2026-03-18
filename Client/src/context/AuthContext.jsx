@@ -20,10 +20,12 @@ export const AuthProvider = ({ children }) => {
       if (firebaseUser) {
         try {
           const token = await firebaseUser.getIdToken();
+          console.log("AuthContext: Token obtained, calling syncUser...");
           const dbUser = await syncUser(token);
+          console.log("AuthContext: User synced successfully:", dbUser?.email);
           setUser({ ...dbUser, token });
         } catch (error) {
-          console.error("Auth sync error:", error);
+          console.error("AuthContext: Auth sync error:", error);
           setUser(null);
         }
       } else {
