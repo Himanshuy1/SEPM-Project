@@ -78,7 +78,12 @@ const DoubtDetails = () => {
                 <h1 className="text-gradient" style={{ fontSize: '2.5rem', marginBottom: 'var(--space-sm)' }}>{doubt.title}</h1>
                 <p style={{ fontSize: '1.1rem', color: 'var(--text-main)', opacity: 0.9, lineHeight: '1.8', whiteSpace: 'pre-wrap' }}>{doubt.description}</p>
                 <div style={{ marginTop: 'var(--space-lg)', paddingTop: 'var(--space-md)', borderTop: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                    <span>Asked by {doubt.createdBy?.email} • {new Date(doubt.createdAt).toLocaleDateString()}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                        <span>Asked by {doubt.createdBy?.email} • {new Date(doubt.createdAt).toLocaleDateString()}</span>
+                        {user && (doubt.createdBy?._id || doubt.createdBy?.firebaseUID) !== (user._id || user.firebaseUID) && (
+                            <Link to={`/chat/${doubt.createdBy?._id}`} className="btn btn-outline" style={{ padding: '0.2rem 0.8rem', fontSize: '0.75rem' }}>Chat with Author</Link>
+                        )}
+                    </div>
                     <Link to={`/doubts/${id}/answer`} className="btn btn-primary" style={{ padding: '0.5rem 1.5rem' }}>
                         Answer This Doubt
                     </Link>
@@ -95,7 +100,12 @@ const DoubtDetails = () => {
                         <div key={ans._id} className="glass" style={{ padding: 'var(--space-lg)', borderRadius: 'var(--radius-md)' }}>
                             <p style={{ whiteSpace: 'pre-wrap', color: 'var(--text-main)' }}>{ans.content}</p>
                             <div style={{ marginTop: 'var(--space-md)', paddingTop: 'var(--space-sm)', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem' }}>
-                                <span style={{ color: 'var(--text-muted)' }}>By: {ans.answeredBy?.email}</span>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                    <span style={{ color: 'var(--text-muted)' }}>By: {ans.answeredBy?.email}</span>
+                                    {user && (ans.answeredBy?._id || ans.answeredBy?.firebaseUID) !== (user._id || user.firebaseUID) && (
+                                        <Link to={`/chat/${ans.answeredBy?._id}`} className="text-gradient" style={{ fontSize: '0.75rem', textDecoration: 'none' }}>Chat</Link>
+                                    )}
+                                </div>
                                 <button
                                     onClick={() => handleUpvote(ans._id)}
                                     className="btn btn-outline"
