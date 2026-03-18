@@ -41,7 +41,7 @@ const getAnswersByDoubt = async (req, res, next) => {
     }
 
     const answers = await Answer.find({ doubt: doubtId })
-      .populate('answeredBy', 'email role branch semester reputation')
+      .populate('answeredBy', 'email role branch semester reputation firebaseUID')
       .sort({ createdAt: -1 });
 
     return res.status(200).json(answers);
