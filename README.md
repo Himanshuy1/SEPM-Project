@@ -1,6 +1,6 @@
 <div align="center">
 
-![EduSphere Banner](file:///d:/Desktop/Web%20Development/SEPM/Client/src/assets/edusphere_banner.png)
+![EduSphere Banner](./Client/src/assets/edusphere_banner.png)
 
 # 🌌 EduSphere
 ### *The Future of Collaborative Learning Intelligence*
