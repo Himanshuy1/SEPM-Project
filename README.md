@@ -94,11 +94,3 @@ npm install
 npm run dev
 ```
 
----
-
-<div align="center">
-  <p>Built with ❤️ by <b>Himanshu</b></p>
-  <a href="https://github.com/Himanshuy1">
-    <img src="https://img.shields.io/badge/Follow%20Me-white?style=social&logo=github" alt="GitHub Follow">
-  </a>
-</div>
