@@ -1,103 +1,104 @@
-# AI-Powered Student Learning Platform 🚀
+<div align="center">
 
-A comprehensive MERN stack educational platform designed to help students learn better through real-time localized doubt solving, AI-driven summarization, and an intelligent chatbot assistant.
+![EduSphere Banner](file:///d:/Desktop/Web%20Development/SEPM/Client/src/assets/edusphere_banner.png)
 
-## ✨ Key Features
+# 🌌 EduSphere
+### *The Future of Collaborative Learning Intelligence*
 
-* **🔐 User Authentication:** Secure login and registration flows with JWT.
-* **❓ Doubt Resolution System:** 
-  * Post your doubts and questions.
-  * Specialized views for doubt details and answers.
-* **🤖 AI Integration:**
-  * **AI Chatbot:** Real-time AI assistant for instant help using Gemini/AIML APIs.
-  * **Smart Document Summarizer:** Upload lengthy texts or documents and get concise AI-generated summaries.
-* **💬 Real-Time Chat:** Integrated socket.io for real-time messaging and peer-to-peer interactions.
-* **📱 Responsive UI:** Built with React and Vite for a lightning-fast, modern user experience.
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Socket.IO](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)](https://socket.io/)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](https://ai.google.dev/)
 
-## 🛠️ Tech Stack
+</div>
 
-**Frontend:**
-* React (Vite)
-* Context API (AuthContext, SocketContext)
-* React Router
+---
 
-**Backend:**
-* Node.js
-* Express.js
-* MongoDB / Mongoose
-* Socket.IO (for real-time chat)
+> [!CAUTION]
+> ### 🛑 PROPRIETARY & CONFIDENTIAL
+> This repository is for **demonstration and portfolio viewing purposes only**. The source code, assets, and documentation are the exclusive property of **[Himanshu](https://github.com/Himanshuy1)**.
+>
+> We kindly request that you refrain from cloning, downloading, modifying, or reusing this code for personal, commercial, or educational projects without express written permission. By viewing this repository, you agree to the terms listed in the [**LICENSE**](file:///d:/Desktop/Web%20Development/SEPM/LICENSE).
 
-**AI & Third-Party:**
-* Google Gemini API / AIML APIs
+---
 
-## 📂 Project Structure
+## 📖 Overview
 
+**EduSphere** is a next-generation MERN stack platform designed to bridge the gap between students and knowledge. By combining real-time communication with cutting-edge AI, EduSphere provides a seamless environment for doubt resolution, resource sharing, and intelligent academic assistance.
+
+## ⚡ Key Capabilities
+
+### ❓ Doubt Resolution 2.0
+Post your academic hurdles and get real-time answers from peers and experts. Our specialized thread-view ensures clarity and structured learning.
+
+### 🤖 AI Intelligence Hub
+- **Smart Chatbot**: Integrated AI assistant capable of solving complex queries and providing instant academic guidance.
+- **Document Summarizer**: Upload lengthy PDFs or text files and receive concise, high-accuracy summaries powered by state-of-the-art LLMs.
+
+### 💬 Real-Time Collaboration
+Powered by **Socket.IO**, EduSphere features instant messaging and live doubt updates, ensuring you're always connected with your learning community.
+
+### 📚 Resource Galaxy
+A central repository for study materials, notes, and previous year papers, making resource discovery effortless.
+
+---
+
+## 🛠️ Technical Architecture
+
+### **The Stack**
+- **Frontend**: React.js with Vite for lightning-fast HMR and premium UI responsiveness.
+- **Backend**: Node.js & Express.js handling robust API routing and business logic.
+- **Database**: MongoDB (Mongoose) for flexible, scalable data modeling.
+- **Real-time**: Socket.IO for persistent, bi-directional communication.
+- **AI Engine**: Deep integration with Google Gemini and OpenAI APIs.
+
+### **Directory Structure**
 ```text
-SEPM/
+EduSphere/
 ├── Client/                 # React Frontend (Vite)
 │   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── context/        # React Context (Auth, Socket)
-│   │   ├── pages/          # Main application views (Login, Chatbot, Doubts, etc.)
-│   │   └── services/       # API integration layers
+│   │   ├── components/     # High-fidelity UI components
+│   │   ├── services/       # AI & Backend API connectors
+│   │   └── context/        # Global state management
 │   └── package.json
-│
-└── server/                 # Node.js Express Backend
-    ├── controllers/        # Business logic (auth, doubt, ai, answers)
-    ├── middleware/         # Express middlewares (auth extraction)
+└── server/                 # Node.js Backend API
     ├── models/             # Mongoose DB schemas
-    ├── routes/             # API routing
-    └── server.js           # Server entry point
+    ├── routes/             # RESTful API endpoints
+    ├── controllers/        # Domain logic
+    └── server.js           # Socket.io & server entry
 ```
 
-## 🚀 Getting Started
+---
 
-Follow these steps to set up the project locally.
+## 🚀 Quick Start
 
-### Prerequisites
-* [Node.js](https://nodejs.org/) (v16 or higher)
-* [MongoDB](https://www.mongodb.com/) (Local or Atlas Cluster)
-* AI Provider API Keys (e.g., Gemini)
-
-### 1. Clone the repository
+### 1️⃣ Clone & Install
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Himanshuy1/SEPM-Project.git
+cd SEPM-Project
 ```
 
-### 2. Backend Setup
+### 2️⃣ Server Setup
 ```bash
 cd server
 npm install
-```
-Create a `.env` file in the `server` directory and configure the following variables:
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-# API Keys for AI features
-GEMINI_API_KEY=your_gemini_api_key
-```
-Start the backend server:
-```bash
+# Create .env with MONGODB_URI, JWT_SECRET, and AI_API_KEYS
 npm run dev
 ```
 
-### 3. Frontend Setup
-Open a new terminal and navigate to the Client folder:
+### 3️⃣ Client Setup
 ```bash
 cd Client
 npm install
-```
-Create a `.env` file in the `Client` directory (if needed by your Vite setup):
-```env
-VITE_API_BASE_URL=http://localhost:5000/api
-```
-Start the Vite development server:
-```bash
 npm run dev
 ```
 
-## 🤝 Contributing
-Contributions, issues, and feature requests are welcome!
+---
 
+<div align="center">
+  <p>Built with ❤️ by <b>Himanshu</b></p>
+  <a href="https://github.com/Himanshuy1">
+    <img src="https://img.shields.io/badge/Follow%20Me-white?style=social&logo=github" alt="GitHub Follow">
+  </a>
+</div>
