@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllResources, uploadResource } from "../services/resourceService";
 import { useAuth } from "../context/AuthContext";
+import { SERVER_URL } from "../services/apiConfig";
 
 const Resources = () => {
   const [resources, setResources] = useState([]);
@@ -266,7 +267,7 @@ const Resources = () => {
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 'var(--space-lg)' }}>{res.description}</p>
               </div>
               <a
-                href={res.externalLink || `http://localhost:5000/${res.filePath.replace(/\\/g, '/')}`}
+                href={res.externalLink || `${SERVER_URL}/${res.filePath.replace(/\\/g, '/')}`}
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-outline"

@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_BASE_URL } from "./apiConfig";
 
-const API_URL = 'http://localhost:5000/api/ai';
+const API_URL = `${API_BASE_URL}/ai`;
 
 const summarizeText = async (text, token) => {
     const config = {

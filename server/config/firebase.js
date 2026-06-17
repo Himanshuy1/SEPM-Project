@@ -5,14 +5,20 @@ require("dotenv").config();
 let initialized = false;
 
 try {
-  // 👉 Path priority:
-  // 1. ENV variable
-  // 2. Default local file
-  const serviceAccountPath =
-    process.env.FIREBASE_SERVICE_ACCOUNT_PATH ||
-    path.join(__dirname, "../firebase-service-account.json");
+  let serviceAccount;
 
-  const serviceAccount = require(path.resolve(serviceAccountPath));
+  // 👉 Priority:
+  // 1. FIREBASE_SERVICE_ACCOUNT_JSON env variable (as JSON string)
+  // 2. FIREBASE_SERVICE_ACCOUNT_PATH env variable
+  // 3. Default local file path
+  if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
+    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+  } else {
+    const serviceAccountPath =
+      process.env.FIREBASE_SERVICE_ACCOUNT_PATH ||
+      path.join(__dirname, "../firebase-service-account.json");
+    serviceAccount = require(path.resolve(serviceAccountPath));
+  }
 
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
