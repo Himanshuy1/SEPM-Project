@@ -1,4 +1,11 @@
+const dns = require('dns');
 const mongoose = require('mongoose');
+
+// Force Node to prioritize IPv4 over IPv6 and use public DNS to resolve SRV records properly on Render/Vercel
+if (typeof dns.setDefaultResultOrder === 'function') {
+  dns.setDefaultResultOrder('ipv4first');
+}
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 const connectDB = async () => {
   try {
