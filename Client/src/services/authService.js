@@ -12,10 +12,12 @@ export const syncUser = async (token) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        timeout: 10000, // 10 second timeout
       }
     );
     return response.data.user;
   } catch (error) {
-    throw error.response?.data?.message || "User sync failed";
+    const message = error.response?.data?.message || error.message || "User sync failed";
+    throw new Error(message);
   }
 };

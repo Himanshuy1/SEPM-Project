@@ -25,8 +25,17 @@ export const AuthProvider = ({ children }) => {
           console.log("AuthContext: User synced successfully:", dbUser?.email);
           setUser({ ...dbUser, token });
         } catch (error) {
-          console.error("AuthContext: Auth sync error:", error);
-          setUser(null);
+          console.error("AuthContext: Auth sync error - falling back to Firebase user:", error);
+          // Fallback: use Firebase user data directly so login still works even if backend is down
+          setUser({
+            _id: firebaseUser.uid,
+            firebaseUID: firebaseUser.uid,
+            email: firebaseUser.email,
+            displayName: firebaseUser.displayName || "",
+            photoURL: firebaseUser.photoURL || "",
+            token: await firebaseUser.getIdToken(),
+            role: "student",
+          });
         }
       } else {
         setUser(null);

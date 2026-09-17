@@ -20,9 +20,10 @@ export default function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // No need to navigate, PublicRoute will handle redirect when user is synced
+      // onAuthStateChanged will fire and set user; PublicRoute handles redirect
+      // setLoading will be handled by the auth state change
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Login failed. Please check your credentials.");
       setLoading(false);
     }
   };
@@ -32,9 +33,9 @@ export default function Login() {
     setLoading(true);
     try {
       await signInWithPopup(auth, googleProvider);
-      // No need to navigate, PublicRoute will handle redirect when user is synced
+      // onAuthStateChanged will fire and set user; PublicRoute handles redirect
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Google sign-in failed. Please try again.");
       setLoading(false);
     }
   };

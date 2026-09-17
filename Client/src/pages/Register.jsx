@@ -32,9 +32,9 @@ export default function Register() {
         displayName: name,
       });
 
-      // No need to navigate, PublicRoute will handle redirect when user is synced
+      // onAuthStateChanged will fire and set user; PublicRoute handles redirect
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Registration failed. Please try again.");
       setLoading(false);
     }
   };
@@ -44,9 +44,9 @@ export default function Register() {
     setLoading(true);
     try {
       await signInWithPopup(auth, googleProvider);
-      // No need to navigate, PublicRoute will handle redirect when user is synced
+      // onAuthStateChanged will fire and set user; PublicRoute handles redirect
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Google sign-in failed. Please try again.");
       setLoading(false);
     }
   };
